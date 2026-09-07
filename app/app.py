@@ -18,7 +18,8 @@ def get_db_connection():
 def home():
     return jsonify({
         "application": "DevOps 2-Tier Application",
-        "status": "running"
+        "status": "running",
+        "version": "1.1"
     })
 
 
