@@ -29,10 +29,10 @@ def health():
         connection.close()
 
         return jsonify({
-    "status": "healthy",
-    "database": "connected",
-    "service": "Flask + MySQL"
-}), 200
+            "status": "healthy",
+            "database": "connected",
+            "service": "Flask + MySQL"
+        }), 200
 
     except Exception as error:
         return jsonify({
@@ -43,5 +43,3 @@ def health():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
-
