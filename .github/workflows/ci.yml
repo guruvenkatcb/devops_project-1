@@ -16,5 +16,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Install dependencies
+        run: |
+          pip install -r app/requirements.txt
+          pip install pytest
+
+      - name: Run tests
+        run: |
+          PYTHONPATH=. pytest tests/test_app.py -v
+
       - name: Build Docker image
-        run: docker build -t devops-flask:ci ./app
+        run: |
+          docker build -t devops-flask:ci ./app
+
